@@ -23,6 +23,8 @@ class Factura
         total_descuento = 0;
         if total > 50000
             total_descuento =  15
+        elsif total > 10000
+            total_descuento = 10
         end
 
         return total_descuento
