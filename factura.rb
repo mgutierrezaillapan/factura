@@ -25,6 +25,8 @@ class Factura
             total_descuento =  15
         elsif total > 10000
             total_descuento = 10
+        elsif total > 7000
+            total_descuento = 7
         end
 
         return total_descuento
