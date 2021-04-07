@@ -50,8 +50,10 @@ class Factura
             total_impuesto = 8.25
         elsif estado == "UT"
             total_impuesto = 6.85
+        elsif estado == "NV"
+            total_impuesto = 8
         end
-        
+
         return total_impuesto
     end
 end
