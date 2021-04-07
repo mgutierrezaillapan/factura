@@ -1,4 +1,6 @@
 class Factura
+    ESTADO_IMPUESTO = Hash["CA" => 8.25, "UT" => 6.85, "NV" => 8, "TX"=> 6.25, "AL" => 4]
+
     def initialize(cantidad, precio_unitario, estado)
         self.cantidad = cantidad
         self.precio_unitario = precio_unitario
@@ -46,18 +48,10 @@ class Factura
     def calcular_impuesto(estado)
         total_impuesto = 0
 
-        if estado == "CA"
-            total_impuesto = 8.25
-        elsif estado == "UT"
-            total_impuesto = 6.85
-        elsif estado == "NV"
-            total_impuesto = 8
-        elsif estado == "TX"
-            total_impuesto = 6.25
-        elsif estado == "AL"
-            total_impuesto = 4
-        end        
-
+        if(ESTADO_IMPUESTO.has_key? estado)
+            total_impuesto =  ESTADO_IMPUESTO[estado]
+        end
+  
         return total_impuesto
     end
 end
