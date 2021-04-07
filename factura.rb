@@ -1,5 +1,6 @@
 class Factura
     ESTADO_IMPUESTO = Hash["CA" => 8.25, "UT" => 6.85, "NV" => 8, "TX"=> 6.25, "AL" => 4]
+    DESCUENTOS = Hash[ 50000 => 15, 10000 => 10, 7000 => 8, 5000 => 5, 1000 => 3]
 
     def initialize(cantidad, precio_unitario, estado)
         self.cantidad = cantidad
@@ -30,18 +31,14 @@ class Factura
     private
     def calcular_descuento(total)
         total_descuento = 0
-        if total > 50000
-            total_descuento =  15
-        elsif total > 10000
-            total_descuento = 10
-        elsif total > 7000
-            total_descuento = 7
-        elsif total > 5000
-            total_descuento = 5
-        elsif total > 1000
-            total_descuento = 3
-        end
 
+        DESCUENTOS.sort_by {|k,v| v}.reverse.each do |key, tasa|
+            if(total > key)
+                total_descuento = tasa
+                break
+            end
+        end
+    
         return total_descuento
     end
 

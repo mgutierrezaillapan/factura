@@ -16,7 +16,7 @@
 14. Aplicar impuesto de NV
 15. Aplicar impuesto de TX
 16. Aplicar impuesto de AL
-17. Aplicar formato de factura
-18. Extraer impuestos desde origen de datos
-19. Extraer descuentos desde origen de datos
+17. Extraer impuestos desde origen de datos
+18. Extraer descuentos desde origen de datos
+19. Aplicar formato de factura
 20. Usuario ingresa datos por consola.
