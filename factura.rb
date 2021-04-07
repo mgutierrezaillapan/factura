@@ -9,16 +9,23 @@ class Factura
         impuesto = neto * 0.0825        
         total_parcial = neto + impuesto
         descuento = calcular_descuento total_parcial
-        total = neto + impuesto - descuento
+        total_descuento = total_parcial * descuento/100
+
+        total = total_parcial - total_descuento/100
         
         puts "#{self.cantidad} x $#{self.precio_unitario} = $#{neto}"
         puts "CA(%8.25) = $#{impuesto}"
-        puts "DTO(%0) = $#{descuento}"
+        puts "DTO(%#{descuento}) = $#{total_descuento}"
         puts "Total = $#{total}"
     end
 
     def calcular_descuento(total)
-        return 0
+        total_descuento = 0;
+        if total > 50000
+            total_descuento =  15
+        end
+
+        return total_descuento
     end
     private :calcular_descuento
 end
